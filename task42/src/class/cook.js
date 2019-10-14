@@ -1,7 +1,12 @@
 import Staff from './staff'
 
+var instance;
+
 function Cook(name, pay) {
-	Staff.call(this, name, pay)
+	if (!instance) {
+		instance = Staff.call(this, name, pay)
+	}
+	return instance
 }
 
 Cook.prototype.finish = function () {

@@ -6,6 +6,7 @@ function Staff(name, pay) {
 	this.id = randomID()
 	this.name = name
 	this.pay = pay
+	return this
 }
 
 Staff.prototype.finish = function () {
