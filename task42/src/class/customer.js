@@ -14,7 +14,9 @@ Customer.prototype.eat = function () {
 
 Customer.prototype.orderDishes = function (menus) {
 	// 点菜
-	console.log('选择:' + menus[randomNum(1, 3)])
+	let dishes = menus[randomNum(1, 3)]
+	console.log('选择:' + dishes.name)
+	return dishes
 }
 
 Customer.prototype.seated = function () {

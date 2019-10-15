@@ -12,10 +12,12 @@ function Waiter(name, pay) {
 Waiter.prototype.finish = function (params) {
 	if (params instanceof Array) {
 		// 记录点菜
-		console.log('记录点菜')
+		for (let i = 0, l = params.length; i < l; i++) {
+			console.log(`顾客点了【${params[i].name}】`)
+		}
 	} else if (typeof params === 'string') {
 		// 上菜
-		console.log('上菜')
+		console.log(`上【${params}】给顾客`)
 	}
 }
 

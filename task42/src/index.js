@@ -65,11 +65,40 @@ function initDishes() {
 }
 initDishes()
 
-var newCustomer = new Customer("李毅")
+function sendMenu(menus) {
+	// 菜单
+	for (let i = 0, l = menus.length; i < l; i++) {
+		console.log(`菜名:${menus[i].name}, 价格:${menus[i].price}, 预计时间${menus[i].cost};`)
+	}
+}
 
-newWaiter.sendMenu(menus);
-newCustomer.orderDishes(menus);
-newWaiter.notifyCook()
-newCook.finish()
-newWaiter.finish("上菜")
-newCustomer.eat()
+var customers = []
+
+function initCustomer() {
+	customers.push('李阳')
+	customers.push('童吉')
+}
+initCustomer()
+
+function process() {
+	for (let i = 0, l = customers.length; i < l; i++) {
+		let customer = new Customer(customers[i])
+		sendMenu(menus);
+		let dishes = customer.orderDishes(menus);
+		newWaiter.finish([dishes])
+		newCook.finish(dishes)
+		newWaiter.finish(dishes.name)
+		customer.eat()
+	}
+}
+
+process()
+
+// var newCustomer = new Customer("李毅")
+
+// newWaiter.sendMenu(menus);
+// newCustomer.orderDishes(menus);
+// newWaiter.notifyCook()
+// newCook.finish()
+// newWaiter.finish("上菜")
+// newCustomer.eat()

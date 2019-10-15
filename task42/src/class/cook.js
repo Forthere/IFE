@@ -9,8 +9,8 @@ function Cook(name, pay) {
 	return instance
 }
 
-Cook.prototype.finish = function () {
-	console.log('烹饪出菜品')
+Cook.prototype.finish = function (obj) {
+	console.log(`烹饪【${obj.name}】,需要等待${obj.cost}分钟`)
 }
 
 export default Cook
